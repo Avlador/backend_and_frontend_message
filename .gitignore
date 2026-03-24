@@ -1,0 +1,20 @@
+# Зависимости (и в корне, и в подпапках)
+node_modules/
+**/node_modules/
+
+# Лишние архивы
+*.zip
+back.zip
+
+# Переменные окружения
+.env
+**/.env
+*.local
+
+# Сборка и логи
+dist/
+build/
+*.log
+
+# Prisma
+src/generated/prisma
