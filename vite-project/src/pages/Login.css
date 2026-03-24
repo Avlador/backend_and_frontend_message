@@ -1,0 +1,33 @@
+.color{
+   
+    width: 100vw;
+    height: 100vh;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+                                 
+}
+.cardRegistration{
+    position: fixed;
+    width: 537px;
+    height: 473px;
+    background-color: #D9D9D9;
+    border-radius: 13px;
+}
+.inputText{
+    width: 437px;
+    height: 59px;
+    border-radius: 13px;
+    background-color: #292836;
+    color: aliceblue;
+    font-size: 20px;
+}
+.buttonLogin{
+    margin: 30px;
+    font-size: 30px;
+    width: 359px;
+    height: 85px;
+    border-radius: 13px;
+    background-color: #292836;
+    color: aliceblue;
+}
