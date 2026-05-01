@@ -1,12 +1,13 @@
 # Зависимости
 node_modules/
 
-# Окружение (САМОЕ ВАЖНОЕ)
+# Окружение 
 .env
 *.local
 
-# Prisma (генерируемый код)
-/src/generated/prisma
+# Prisma 
+src/generated/
+# prisma/migrations/
 
 # Сборка
 dist/
