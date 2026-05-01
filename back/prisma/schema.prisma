@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../src/generated/prisma"
@@ -17,6 +11,7 @@ model User {
   id Int @id @default(autoincrement())
   username String @unique
   email String @unique
+  post Post[]
   password String 
   createAt DateTime @default(now())
   messages Message[]
@@ -42,8 +37,7 @@ chatId Int
 user User @relation(fields: [userId], references: [id])
 chat Chat @relation(fields: [chatId],references: [id])
 
-@@unique([userId, chatId]) //!эта строка создает уникальный индек, она гарантирует,
-//! что в бд  не будет дубликатов данных chatId и userId
+@@unique([userId, chatId]) 
 }
 
 model Message {
@@ -54,4 +48,14 @@ model Message {
   chat Chat  @relation(fields: [chatId], references: [id])
   authorId Int
   author User @relation(fields: [authorId], references: [id])
+}
+
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
 }
