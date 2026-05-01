@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShallow } from 'zustand/shallow';
 import { useMessages } from '../Stors/messagesStore';
+import { socket } from '../utils/socket';
 
 export const DialogPage = () => {
   const { messages, addMessage, clearAllMessage } = useMessages(
@@ -31,7 +32,8 @@ export const DialogPage = () => {
       text: text.trim(),
       senderId: MY_USER_ID,
     };
-
+    socket.emit('message:send', newMessage);
+    
     addMessage(newMessage);
     setText('');
   };
@@ -43,6 +45,8 @@ export const DialogPage = () => {
       handleSendMessage();
     }
   };
+
+  
 
   const handleClearChat = () => {
 
