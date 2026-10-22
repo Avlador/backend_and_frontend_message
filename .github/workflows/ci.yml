@@ -26,8 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+    - run: cd vite-project && npm ci
     - name: Run code validation (Linter)
       run: cd vite-project && npm run lint
-    - run: npm run build --if-present
+    - run: cd vite-project && npm run build --if-present
     # - run: npm test
