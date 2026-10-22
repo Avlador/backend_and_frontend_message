@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShallow } from 'zustand/shallow';
 import { useMessages } from '../Stors/messagesStore';
-import socket } from '../utils/socket';
+import { socket } from '../utils/socket';
 
 export const DialogPage = () => {
   const { messages, addMessage, clearAllMessage } = useMessages(
