@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShallow } from 'zustand/shallow';
 import { useMessages } from '../Stors/messagesStore';
-import { socket } from '../utils/socket';
+import socket } from '../utils/socket';
 
 export const DialogPage = () => {
   const { messages, addMessage, clearAllMessage } = useMessages(
@@ -13,7 +13,7 @@ export const DialogPage = () => {
     }))
   );
 
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [text, setText] = useState('');
 
@@ -22,9 +22,9 @@ export const DialogPage = () => {
   const BOT_ID = 'botUserId';
 
   const handleSendMessage = (event?: React.FormEvent) => {
-    if (event) event.preventDefault(); 
+    if (event) event.preventDefault();
 
-    if (!text.trim()) return; 
+    if (!text.trim()) return;
 
     const newMessage = {
       id: Date.now().toString(),
@@ -33,7 +33,7 @@ export const DialogPage = () => {
       senderId: MY_USER_ID,
     };
     socket.emit('message:send', newMessage);
-    
+
     addMessage(newMessage);
     setText('');
   };
@@ -46,7 +46,7 @@ export const DialogPage = () => {
     }
   };
 
-  
+
 
   const handleClearChat = () => {
 
@@ -67,7 +67,7 @@ export const DialogPage = () => {
           id: Date.now().toString(),
           chatId: lastMessage.chatId,
           senderId: BOT_ID,
-          text: 'дщщщщщщщщщщщщ', 
+          text: 'дщщщщщщщщщщщщ',
         });
       }, 1000);
 
@@ -78,16 +78,16 @@ export const DialogPage = () => {
 
   return (
     <div className="container">
-      
+
 
       <div className="Navigation">
         <div className="contact">
-          <button 
-            className="icon1" 
+          <button
+            className="icon1"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           ></button>
         </div>
-        
+
         <div className="dialog_container">
 
           <nav className={`heder_nav ${isMenuOpen ? 'active' : 'in_active'}`}>
@@ -122,7 +122,7 @@ export const DialogPage = () => {
       </div>
 
       <div className="chat">
-        
+
         {/* Шапка чата */}
         <div className="topPanel">
           <div className="crygToppanel"></div>
@@ -133,7 +133,7 @@ export const DialogPage = () => {
         <div className="dialogue_window" style={{ flexGrow: 1, padding: '10px' }}>
           {messages.map((msg) => {
             const isMyMessage = msg.senderId === MY_USER_ID;
-            
+
             return (
               <div
                 key={msg.id}
@@ -159,9 +159,9 @@ export const DialogPage = () => {
               placeholder="Введите сообщение..."
               autoComplete="off"
             />
-            <button 
-              type="submit" 
-              disabled={!text.trim()} 
+            <button
+              type="submit"
+              disabled={!text.trim()}
               style={{ marginLeft: '10px' }}
             >
               Отправить
