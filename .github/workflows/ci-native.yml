@@ -53,6 +53,7 @@ jobs:
 
     - name: Run backend server in background
       run: |
+        sleep 5
         npm start &
         sleep 5
 
