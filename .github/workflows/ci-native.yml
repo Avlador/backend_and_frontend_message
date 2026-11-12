@@ -53,9 +53,10 @@ jobs:
 
     - name: Run backend server in background
       run: |
+       npm start > server.log 2>&1 &
         sleep 5
-        npm start &
-        sleep 5
+        echo "=== SERVER LOGS ==="
+        cat server.log || echo "Log file not found"
 
     - name: Show logs if server failed
       if: failure()
