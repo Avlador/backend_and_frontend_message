@@ -40,4 +40,4 @@ jobs:
 
     - name: Smoke test backend server
       run: |
-        curl -v http://127.0.0.1:3000/
+        curl -v http://127.0.0.1:5173/
