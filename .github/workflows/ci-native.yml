@@ -26,7 +26,7 @@ jobs:
           --health-retries 5
     
     env:
-      DATABASE_URL: "postgresql://user:password@localhost:5432/mydb?schema=public"
+      DATABASE_URL: "postgresql://user:password@postgres:5432/mydb?schema=public"
 
     defaults:
       run:
