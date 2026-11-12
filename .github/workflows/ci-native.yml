@@ -10,7 +10,9 @@ jobs:
   build-backend:
     runs-on: ubuntu-latest
     
-    # Указываем GitHub Actions выполнять все команды внутри папки back
+    env:
+      DATABASE_URL: "file:./dev.db"
+
     defaults:
       run:
         working-directory: ./back
@@ -29,7 +31,6 @@ jobs:
 
     - name: Initialize SQLite Database (Prisma)
       run: |
-        npx prisma generate
         npx prisma db push
 
     - name: Run backend server in background
